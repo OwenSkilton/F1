@@ -1,7 +1,8 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Navbar from "./components/Navbar";
-import Home from "./Pages/home/Home";
+import Home from "./Pages/Home/Home";
 import "./index.scss"
+import StandingsHome from "./Pages/Standings/StandingsHome";
 
 export default function App(){
   return(
@@ -10,7 +11,7 @@ export default function App(){
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/standings" element={<Home/>}/>
+          <Route path="/standingsHome" element={<StandingsHome/>}/>
           <Route path="/drivers" element={<Home/>}/>
           <Route path="/race-results" element={<Home/>}/>
           <Route path="/schedule" element={<Home/>}/>

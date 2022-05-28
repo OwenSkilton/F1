@@ -13,7 +13,7 @@ const Navbar = () => {
                     </Link>
                 </li>
                 <li className="menu-group">
-                    <Link className="menu-link text-underlined" to="/standings">Current Standings</Link>
+                    <Link className="menu-link text-underlined" to="/standingsHome">Current Standings</Link>
                 </li>
                 <li className="menu-group">
                     <Link className="menu-link text-underlined" to="/drivers">Drivers</Link>

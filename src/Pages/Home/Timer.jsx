@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {TimerTestObject} from "../../components/TestData/TimerTestObject";
+import {getFunction} from "../Helpers/getFunction";
+import URLS from "../../config";
 const axios = require('axios')
 
 export default function Timer() {
@@ -9,15 +11,8 @@ export default function Timer() {
     const [time, setTime] = useState(Date.now);
 
     useEffect(async () => {
-        const url = "https://ergast.com/api/f1/current/next.json"
-        try {
-            const fetchResult = await axios.get(url);
-            setNextRaceData(await fetchResult.data)
-            setLoading(false)
-        } catch (err) {
-            setErr(err)
-            console.log(JSON.stringify(err))
-        }
+        const url = URLS.TIMER_URL
+        await getFunction(url, setNextRaceData, setLoading, setErr)
         const interval = setInterval(() => setTime(Date.now()), 1000)
         return () => {
             clearInterval(interval);
@@ -57,7 +52,7 @@ export default function Timer() {
     }
 
     return (
-        <div className={"container"}>
+        <div className={"margin-1"}>
             <p>Time till next race: { loading ? null : renderClock() }</p>
         </div>
     );
