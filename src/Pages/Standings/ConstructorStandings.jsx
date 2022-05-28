@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
-import {DriverTestObject} from "../../components/TestData/DriverStandingsTestObject";
+import React, {useEffect, useState} from 'react';
 import {Table} from "../Helpers/Table";
 import {ConstructorsStandingsTestObject} from "../../components/TestData/ConstructorsStandingsTestObject";
+import {getFunction} from "../Helpers/getFunction";
+import URLS from "../../config";
 
 const ConstructorStandings = () => {
 
@@ -10,10 +11,10 @@ const ConstructorStandings = () => {
     const [err, setErr] = useState('')
     const [loading, setLoading] = useState(false)
 
-    // useEffect(async () => {
-    //     const url = URLS.CONSTRUCTOR_STANDING_URL
-    //     await getFunction(url, setStandingsData, setLoading, setErr)
-    // }, [])
+    useEffect(async () => {
+        const url = URLS.CONSTRUCTOR_STANDING_URL
+        await getFunction(url, setStandingsData, setLoading, setErr)
+    }, [])
 
     const tHeaders = [
         "Position",
